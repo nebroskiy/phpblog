@@ -18,9 +18,9 @@ services:
 
     php:
         # у нас свой образ для PHP, указываем путь к нему и говорим что его надо собрать
-        #build: ./images/php
+        build: ./images/php
         container_name: php
-        image: php:8.1.4-fpm
+        #image: php:8.1.4-fpm
         volumes:
             - ./www:/var/www
         links:
@@ -31,12 +31,17 @@ services:
     db:
         image: mariadb:latest
         container_name: mariadb
+        ports:
+            - "3306:3306"
         volumes:
             - ./mariadb:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: qwerty
+#            MYSQL_DATABASE: db_test
 
-#    mysql:
+
+
+#mysql:
  #       image: mysql
   #      ports:
    #         - "3306:3306"

@@ -11,10 +11,12 @@
         <h5><?php echo 'Today is <b>' . date('l') . '</b>, '. date('d/m/Y') . ' and now its ' . '<b>' . date('H:i') . '</b>'; ?></h5>
     </header>
     <nav>
+        <a role="link" aria-disabled="true">Home</a> |
         <a href="/blog.php">Blog</a> |
         <a href="/css/">Log in</a> |
         <a href="/js/">Account</a> |
-        <a href="/python/">About</a>
+        <a href="/python/">About</a> |
+        <a href="/code.php">Test File</a>
     </nav>
 </body>
 
