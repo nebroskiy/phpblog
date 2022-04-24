@@ -1,6 +1,6 @@
 <div class="container mt-4">
     <?php
-    $connection = new PDO("mysql:host=db;dbname=dbtest;charset=utf8", "root", "qwerty");
+    require_once "pdo_connection.php";
     $query = "SELECT * FROM test_table;";
     $res = $connection->query($query);
     while ($row = $res->fetch()){
