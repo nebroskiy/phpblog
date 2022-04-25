@@ -15,9 +15,9 @@ function data_insert ($title, $description, $topic)
         echo "Enter topic";
     } else {
         require "pdo_connection.php";
-        require "data_insert_mariadb.php";
         $connection = connection($driver, $host, $dbname, $charset, $username, $password);
-        data_insert_mariadb($connection, $title, $description, $topic);
+        require "data_insert_mariadb.php";
+                data_insert_mariadb($connection, $title, $description, $topic);
         header("Location:/");
     }
 }

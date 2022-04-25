@@ -11,9 +11,12 @@
 ?>
 <div class="container mt-4">
 <?php
-    require "./pdo/db_select_fetch.php";
+    require "./pdo/pdo_connection.php";
+    $connection = connection($driver, $host, $dbname, $charset, $username, $password);
+    require "./pdo/topics_fetch_id_desc.php";
+    $res_query = topics_fetch_id_desc($connection);
     require "./php/display_topics.php";
-    display_topics($res);
+    display_topics($res_query);
 ?>
 <div>
 <?php
