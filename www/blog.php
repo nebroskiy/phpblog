@@ -1,17 +1,21 @@
 <?php
     $article = "Blog";
-    require "html-head.php";
+    require "./html/html-head.php";
 ?>
-<body>
 <header>
     <h1>Here will be blog</h1>
 </header>
 <?php
-    require "nav_main.php";
-    require "nav_blog.php";
+    require "./html/nav_main.php";
+    require "./html/nav_blog.php";
 ?>
-</body>
+<div class="container mt-4">
 <?php
-    require "display-topics.php";
-    require "html-footer.php";
+    require "./pdo/db_select_fetch.php";
+    require "./php/display_topics.php";
+    display_topics($res);
+?>
+<div>
+<?php
+    require "./html/html-footer.php";
 ?>
