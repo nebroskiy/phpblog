@@ -1,15 +1,15 @@
 <?php
     $article = "Create Topic";
-    require "./html/html-head.php";
+    require "/var/www/html/html-head.php";
 ?>
 <header>
     <h1>Create Topic</h1>
 </header>
 <?php
-    require "./html/nav_main.php";
-    require "./html/nav_blog.php";
-    require "./html/create_topic_form.php";
+    require "/var/www/html/nav_main.php";
+    require "/var/www/html/nav_blog.php";
+    require "/var/www/html/create_topic_form.php";
 ?>
 <?php
-    require "./html/html-footer.php";
+    require "/var/www/html/html-footer.php";
 ?>

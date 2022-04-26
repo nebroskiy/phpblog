@@ -1,14 +1,14 @@
 <?php
     $article = "My Topics";
-    require "./html/html-head.php";
+    require "/var/www/html/html-head.php";
 ?>
 <header>
     <h1>My Topics</h1>
 </header>
 <?php
-    require "./html/nav_main.php";
-    require "./html/nav_blog.php";
+    require "/var/www/html/nav_main.php";
+    require "/var/www/html/nav_blog.php";
 ?>
 <?php
-    require "./html/html-footer.php";
+    require "/var/www/html/html-footer.php";
 ?>

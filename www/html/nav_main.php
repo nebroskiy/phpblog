@@ -4,5 +4,5 @@
     <a href="/css/">Log in</a> |
     <a href="/js/">Account</a> |
     <a href="/python/">About</a> |
-    <a href="/code.php">Test File</a>
+    <a href="/test/code.php">Test File</a>
 </nav>

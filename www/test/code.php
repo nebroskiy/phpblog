@@ -1,6 +1,6 @@
 <?php
     $article = "Test Doc";
-    require "html-head.php";
+    require "/var/www/html/html-head.php";
 ?>
 <header>
     <h1>Test Doc</h1>
@@ -132,5 +132,5 @@ $ar3 = ["Name" => "Drone", "Lastname" => "Tarantul", "Age" => 23];
 ?>
 </h4></div>
 <?php
-    require "html-footer.php";
+    require "/var/www/html/html-footer.php";
 ?>
