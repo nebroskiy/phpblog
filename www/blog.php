@@ -13,9 +13,9 @@
 <?php
     require "./pdo/pdo_connection.php";
     $connection = connection($driver, $host, $dbname, $charset, $username, $password);
-    require "./pdo/topics_fetch_id_desc.php";
-    $res_query = topics_fetch_id_desc($connection);
-    require "./php/display_topics.php";
+    require "./pdo/data_topic_fetch_id_desc.php";
+    $res_query = topic_fetch_id_desc($connection);
+    require "./pdo/data_display_topics.php";
     display_topics($res_query);
 ?>
 <div>
