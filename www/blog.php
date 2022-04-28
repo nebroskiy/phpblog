@@ -11,8 +11,12 @@
 ?>
 <div class="container mt-4">
 <?php
-    require "/var/www/pdo/pdo_connection.php";
-    $connection = connection($driver, $host, $dbname, $charset, $username, $password);
+#    require "/var/www/pdo/pdo_connection.php";
+#    $connection = connection($driver, $host, $dbname, $charset, $username, $password);
+    require "/var/www/Classes/Data_Connection.php";
+    $connect = new Data_Connection();
+    $c_pdo = new Connection_PDO();
+    $connect->connection($c_pdo);
     require "/var/www/pdo/data_topic_fetch_id_desc.php";
     $res_query = topic_fetch_id_desc($connection);
     require "/var/www/pdo/data_display_topics.php";
