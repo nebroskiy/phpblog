@@ -2,5 +2,5 @@
 
 interface DataConnectionInterface
 {
-    public function connection_to_db ();
+    public function connectionToDb ();
 }

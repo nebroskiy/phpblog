@@ -1,18 +1,13 @@
 <?php
     $article = "Test Doc";
-    require "/var/www/html/html-head.php";
+    require "/var/www/view/html-head.php";
 ?>
 <header>
     <h1>Test Doc</h1>
 </header>
-<nav>
-    <a href="/">Home</a> |
-    <a href="/blog.php">Blog</a> |
-    <a href="/css/">Log in</a> |
-    <a href="/js/">Account</a> |
-    <a href="/python/">About</a> |
-    <a href="/code.php">Test File</a>
-</nav><br>
+<?php
+    require "/var/www/view/nav/nav_main.php";
+?>
 <div><h4>
 <?php
 
@@ -128,9 +123,12 @@ $ar3 = ["Name" => "Drone", "Lastname" => "Tarantul", "Age" => 23];
     echo ryme_static()."<br>";
     echo ryme_static()."<br>";
     echo ryme_static()."<br>";
+//                                                                Ternar operator
+//    $tern = 1;
+//    echo $tern ? "Yeah" : "Nope";
 
 ?>
 </h4></div>
 <?php
-    require "/var/www/html/html-footer.php";
+    require "/var/www/view/html-footer.php";
 ?>

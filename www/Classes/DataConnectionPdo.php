@@ -11,10 +11,10 @@ class DataConnectionPdo implements DataConnectionInterface
     public string $username = "root";
     public string $password = "qwerty";
 
-    public function connection_to_db (): PDO
+    public function connectionToDb (): PDO
     {
-        $connection_pdo = new PDO("$this->driver:host=$this->host;dbname=$this->dbname;charset=$this->charset",
+        $connectionPdo = new PDO("$this->driver:host=$this->host;dbname=$this->dbname;charset=$this->charset",
             "$this->username", "$this->password");
-        return $connection_pdo;
+        return $connectionPdo;
     }
 }
