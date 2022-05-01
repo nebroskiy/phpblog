@@ -1,5 +1,5 @@
 <div class="container mt-4">
-    <form action="/model/data_insert/data_save_topic.php" method="post">
+    <form action="/model/data_insert/dataInsertController.php" method="post">
         <input type="text" name="title" placeholder="Title..." class="form-control"><br>
         <input type="text" name="description" placeholder="Description..." class="form-control"><br>
         <textarea name="topic" placeholder="Your topic..." class="form-control"></textarea><br>
