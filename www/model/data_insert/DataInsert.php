@@ -2,7 +2,7 @@
 
 class DataInsert
 {
-    function dataInsert (string $title, string $description, string $topic): void
+    public function dataInsert (string $title, string $description, string $topic): void
     {
         require "DataTopicCheck.php";
             $dataTopicCheck = new DataTopicCheck();

@@ -9,4 +9,5 @@ require "/var/www/view/html-head.php";
 <header/>
 <?php
 require "/var/www/view/nav/nav_main.php";
+require "/var/www/view/nav/nav_blog.php";
 require "/var/www/view/html-footer.php";

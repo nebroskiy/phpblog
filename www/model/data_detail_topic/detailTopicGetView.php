@@ -1,0 +1,12 @@
+<?php
+$article = $title;
+require "/var/www/view/html-head.php";
+?>
+<header>
+    <h1>Topic</h1>
+</header>
+<?php
+require "/var/www/view/nav/nav_main.php";
+require "/var/www/view/nav/nav_blog.php";
+require "/var/www/view/detail_topic/detail_topic_fill.php";
+require "/var/www/view/html-footer.php";

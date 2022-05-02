@@ -13,7 +13,6 @@ class DataTopicCheck
                 throw new DescriptionTopicException();
             } elseif (strlen($topic) < 10 || trim($topic) == "") {
                 throw new TopicTopicException();
-
             } else {
                 return True;
             }

@@ -1,5 +1,5 @@
 <nav>
-    <a href="/view/blog/blog.php">All topics</a> |
-    <a href="/view/create_topic/create_topic.php">Create topic</a> |
-    <a href="/view/my_topics/my_topics.php">My topics</a>
+    <a href="/blog">All topics</a> |
+    <a href="/createtopic">Create topic</a> |
+    <a href="/mytopics">My topics</a>
 </nav>
