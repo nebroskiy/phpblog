@@ -1,10 +1,11 @@
 <?php
 
 require "/var/www/model/data_connection/DataConnection.php";
-
+require "/var/www/model/orm/Tables.php";
 
 abstract class AccessDb
 {
+    use Tables;
     public object $getConnect;
     public string $table;
     protected object $connectionClass;
@@ -24,11 +25,6 @@ abstract class AccessDb
         $this->getConnect = $connectionTo->getConnection($this->connectionClass);
     }
 
-    // insert table name to iterate with table in $table
-    public function setTable (string $table) :void
-    {
-        $this->table = $table;
-    }
 }
 
 class Insert extends AccessDb
@@ -73,5 +69,7 @@ $testArr = ['title' => 'Insert test title',
 $table = "test_table";
 $obj = new Insert(new DataConnectionPdo);
 $obj->setTable($table);
-$obj->dataInsert($testArr);
+$showTables = $obj->showTables();
+print_r($showTables);
+//$obj->dataInsert($testArr);
 

@@ -2,29 +2,28 @@
 
 class IndexRouting
 {
-    public string $uri;
-    public array $uriExplode;
+    private string $uri;
+    private array $uriExplode;
+    private array $routes;
 
-    public function pageDisplay () :void {
+    public function __construct($routes)
+    {
+        $this->routes = $routes;
+        $this->pageDisplay();
+    }
 
+    private function pageDisplay(): void
+    {
         $this->uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
         $this->uriExplode = explode("/", $this->uri);
 
-        if ($this->uriExplode[1] === 'blog') {
-            if (count($this->uriExplode) == 2){
-                require "/var/www/view/blog/blog.php";
-            } elseif ($this->uriExplode[2]) {
-                $id = $this->uriExplode[2];
-                require "/var/www/model/data_detail_topic/DetailTopicController.php";
-                $showTopic = new DetailTopicController();
-                $showTopic->getTopic($id);
+        foreach ($this->routes as $page)
+        {
+            if (preg_match($page['regular_pattern'], $this->uri, $matches))
+            {
+                require $page['controller'];
             }
-        } elseif ($this->uri === '/createtopic'){
-            require "/var/www/view/create_topic/create_topic.php";
-        } elseif ($this->uri === '/mytopics'){
-            require "/var/www/view/my_topics/my_topics.php";
-        } else {
-            require "/var/www/view/404.php";
         }
+
     }
 }

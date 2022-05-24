@@ -1,5 +1,6 @@
 <?php
-$article = $title;
+//$article = $title;
+$article = 'CHANGE IT';
 require "/var/www/view/html-head.php";
 ?>
 <header>
@@ -8,5 +9,9 @@ require "/var/www/view/html-head.php";
 <?php
 require "/var/www/view/nav/nav_main.php";
 require "/var/www/view/nav/nav_blog.php";
-require "/var/www/view/detail_topic/detail_topic_fill.php";
+//require "/var/www/view/detail_topic/detail_topic_fill.php";
+require "/var/www/template_handler/TplHandler.php";
+$detailTopicView = new TplHandler('/var/www/template/detail_topic_fill.tpl');
+$show = $detailTopicView->creator($tplFills);
+echo $show;
 require "/var/www/view/html-footer.php";
