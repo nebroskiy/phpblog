@@ -6,7 +6,7 @@
     <h1>Test Doc</h1>
 </header>
 <?php
-    require "/var/www/view/nav/nav_main.php";
+    require "/var/www/view/nav/nav_main.html";
 ?>
 <div><h4>
 <?php
@@ -233,5 +233,5 @@ foreach ($arr as $a)
 ?>
 </h4></div>
 <?php
-    require "/var/www/view/html-footer.php";
+    require "/var/www/view/html-footer.html";
 ?>

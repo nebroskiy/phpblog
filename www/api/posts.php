@@ -7,4 +7,4 @@ while ($row = $res->fetch()) {
 }
 $json_p = json_encode($list_p);
 echo $json_p;
-require "../html/html-footer.php";
+require "../html/html-footer.html";

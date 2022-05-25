@@ -12,7 +12,7 @@ class TopicDisplayController
             $topicFetch = new DataTopicFetchIdDesc();
             $resQuery = $topicFetch->dataTopicFetchIdDesc($connection);
         require "DataDisplayTopics.php";
-            $displayTopics = new DataDisplayTopics();
-            $displayTopics->dataDisplayTopics($resQuery);
+            $displayTopics = new DataDisplayTopics(new TplHandler('/var/www/view/blog/display_topics_fill.tpl'),
+                                                    $resQuery);
     }
 }

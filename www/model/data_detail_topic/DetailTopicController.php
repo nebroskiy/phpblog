@@ -25,11 +25,5 @@ class DetailTopicController
         } else {
             require "detailTopicGetView.php";
         }
-//        } else {
-//            $title = $row["title"];
-//            $description = $row["description"];
-//            $topic = $row["topic"];
-//            require "detailTopicGetView.php";
-//        }
     }
 }

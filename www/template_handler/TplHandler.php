@@ -3,7 +3,7 @@
 class TplHandler
 {
     private array $tplFills;
-    private string $tplFile;
+    public string $tplFile;
     private string $tplFilePrepared;
 
     public function __construct(string $tplFile)
@@ -12,7 +12,7 @@ class TplHandler
         $this->getContents($this->tplFile);
     }
 
-    private function getContents (string $tplFile) :void
+    public function getContents (string $tplFile) :void
     {
         $this->tplFilePrepared = file_get_contents($tplFile);
     }
