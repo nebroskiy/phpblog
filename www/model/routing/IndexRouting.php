@@ -2,14 +2,20 @@
 
 class IndexRouting
 {
-    private string $uri;
+    public string $uri;
     private array $uriExplode;
     private array $routes;
+    public string $pageToView;
 
     public function __construct($routes)
     {
         $this->routes = $routes;
         $this->pageDisplay();
+    }
+
+    public function getPageToView(): string
+    {
+        return $this->pageToView;
     }
 
     private function pageDisplay(): void
@@ -21,9 +27,8 @@ class IndexRouting
         {
             if (preg_match($page['regular_pattern'], $this->uri, $matches))
             {
-                require $page['controller'];
+                $this->pageToView = $page['controller'];
             }
         }
-
     }
 }

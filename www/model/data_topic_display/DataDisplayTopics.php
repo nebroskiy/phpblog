@@ -37,7 +37,7 @@ class DataDisplayTopics
         {
             $this->tplFilePrepared = $this->tplHandler->creator($fills);
             echo $this->tplFilePrepared;
-            $this->tplHandler->getContents($this->tplHandler->tplFile);
+            $this->tplHandler->setContents($this->tplHandler->tplFile);
         }
     }
 }

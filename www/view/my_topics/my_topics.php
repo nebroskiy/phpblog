@@ -1,14 +1,13 @@
 <?php
-    $article = "My Topics";
-    require "/var/www/view/html-head.php";
-?>
-<header>
-    <h1>My Topics</h1>
-</header>
-<?php
-    require "/var/www/view/nav/nav_main.html";
-    require "/var/www/view/nav/nav_blog.html";
-?>
-<?php
-    require "/var/www/view/html-footer.html";
-?>
+require "/var/www/template_handler/TplHandler.php";
+
+    $fillsMyTopics = ['title' => "My Topics", 'header' => "My Topics"];
+    $tplHandler = new TplHandler("/var/www/view/html-head.html.tpl");
+    echo $tplHandler->creator($fillsMyTopics);
+
+    $tplHandler->setContents('/var/www/view/header.tpl');
+    echo $tplHandler->creator($fillsMyTopics);
+
+require "/var/www/view/nav/nav_main.html";
+require "/var/www/view/nav/nav_blog.html";
+require "/var/www/view/html-footer.html";

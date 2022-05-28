@@ -1,22 +1,15 @@
 <?php
-    $article = "Blog";
-    require "/var/www/view/html-head.php";
-?>
-<header>
-    <h1>Here will be blog</h1>
-</header>
-<?php
-    require "/var/www/view/nav/nav_main.html";
-    require "/var/www/view/nav/nav_blog.html";
-?>
-<div class="container mt-4">
-<?php
-    require "/var/www/model/data_topic_display/TopicDisplayController.php";
-    require "/var/www/template_handler/TplHandler.php";
-    $topicsToView = new TopicDisplayController();
-    $topicsToView->displayTopics();
-?>
-</div>
-<?php
-    require "/var/www/view/html-footer.html";
-?>
+require "/var/www/template_handler/TplHandler.php";
+
+    $fillsBlog = ['title' => 'Blog', 'header' => 'Blog'];
+
+    $tplHandler = new TplHandler('/var/www/view/html-head.html.tpl');
+    echo $tplHandler->creator($fillsBlog);
+
+    $tplHandler->setContents('/var/www/view/header.tpl');
+    echo $tplHandler->creator($fillsBlog);
+
+require "/var/www/view/nav/nav_main.html";
+require "/var/www/view/nav/nav_blog.html";
+require "/var/www/view/blog/topic_display.html.php";
+require "/var/www/view/html-footer.html";

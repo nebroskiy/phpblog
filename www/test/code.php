@@ -1,6 +1,6 @@
 <?php
     $article = "Test Doc";
-    require "/var/www/view/html-head.php";
+    require "/var/www/view/html-head.html.tpl";
 ?>
 <header>
     <h1>Test Doc</h1>

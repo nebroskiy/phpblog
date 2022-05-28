@@ -9,10 +9,10 @@ class TplHandler
     public function __construct(string $tplFile)
     {
         $this->tplFile = $tplFile;
-        $this->getContents($this->tplFile);
+        $this->setContents($this->tplFile);
     }
 
-    public function getContents (string $tplFile) :void
+    public function setContents (string $tplFile) :void
     {
         $this->tplFilePrepared = file_get_contents($tplFile);
     }

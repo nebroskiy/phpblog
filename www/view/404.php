@@ -2,7 +2,7 @@
 
 $article = "404 Page not found :(";
 
-require "/var/www/view/html-head.php";
+require "/var/www/view/html-head.html.tpl";
 ?>
 <header>
     <h1>404 page not found :(</h1>
