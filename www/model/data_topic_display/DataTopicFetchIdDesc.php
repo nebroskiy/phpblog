@@ -2,9 +2,9 @@
 
 class DataTopicFetchIdDesc
 {
-    public function dataTopicFetchIdDesc(object $connection): object
+    public function dataTopicFetchIdDesc(PDO $connection): PDOStatement
     {
         $query = "SELECT * FROM test_table ORDER BY id DESC;";
-        return $resQuery = $connection->query($query);
+        return $connection->query($query);
     }
 }

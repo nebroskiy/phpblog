@@ -4,6 +4,7 @@ class DetailTopicController
 {
     private string $id;
     private PDO $connection;
+    private PDOStatement $resQuery;
 
     public function __construct(GetTopicId $getTopicId)
     {
@@ -11,7 +12,7 @@ class DetailTopicController
         $this->getTopic();
     }
 
-    private function PdoConnect(): void
+    private function pdoConnect(): void
     {
         require "/var/www/model/data_connection/DataConnection.php";
         $connectionBy = new DataConnection();
@@ -19,19 +20,18 @@ class DetailTopicController
         $this->connection = $connectionBy->getConnection($c_pdo);
     }
 
-    private function getQueryPdo(string $id): PDOStatement
+    private function getQueryPdo(PDO $connection, string $id): void
     {
         require "DataDetail.php";
         $detailTopic = new DataDetail();
-        $resQuery = $detailTopic->getDetails($this->connection, $id);
-        return $resQuery;
+        $this->resQuery = $detailTopic->getDetails($connection, $id);
     }
 
     private function getTopic (): void
     {
         $this->PdoConnect();
-        $resQuery = $this->getQueryPdo($this->id);
-        if (!$tplFills = $resQuery->fetch()){
+        $this->getQueryPdo($this->connection, $this->id);
+        if (!$tplFills = $this->resQuery->fetch()){
             require "/var/www/view/404.php";
         } else {
             require "detailTopicGetView.php";

@@ -5,6 +5,7 @@ class DataDisplayTopics
     private object $tplHandler;
     private array $tplFills = [];
     private string $tplFilePrepared;
+    private array $pagesDone;
 
     public function __construct(TplHandler $tplHandler, PDOStatement $fills)
     {
@@ -13,7 +14,7 @@ class DataDisplayTopics
         $this->showTopics($this->tplFills);
     }
 
-    public function setHandler (TplHandler $tplHandler) :void
+    private function setHandler (TplHandler $tplHandler) :void
     {
         $this->tplHandler = $tplHandler;
     }
@@ -26,18 +27,27 @@ class DataDisplayTopics
         }
     }
 
-    public function getFilePrepared () :string
+    public function setPagesDone (array $pages) :void
     {
-        return $this->tplFilePrepared;
+        $this->pagesDone = $pages;
     }
 
-    public function showTopics (array $tplFills) :void
+    public function getPagesDone (): array
     {
+        return $this->pagesDone;
+    }
+
+    public function showTopics (array $tplFills): void
+    {
+        $pages = [];
+
         foreach ($tplFills as $fills)
         {
             $this->tplFilePrepared = $this->tplHandler->creator($fills);
-            echo $this->tplFilePrepared;
+            $pages[] = $this->tplFilePrepared;
             $this->tplHandler->setContents($this->tplHandler->tplFile);
         }
+
+        $this->setPagesDone($pages);
     }
 }

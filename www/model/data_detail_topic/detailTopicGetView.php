@@ -13,7 +13,6 @@ require "/var/www/view/nav/nav_main.html";
 require "/var/www/view/nav/nav_blog.html";
 
     $tplHandler->setContents('/var/www/template/detail_topic_fill.tpl');
-    $show = $tplHandler->creator($tplFills);
-    echo $show;
+    echo $tplHandler->creator($tplFills);
 
 require "/var/www/view/html-footer.html";

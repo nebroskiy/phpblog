@@ -3,7 +3,7 @@
 class IndexRouting
 {
     public string $uri;
-    private array $uriExplode;
+//    private array $uriExplode;
     private array $routes;
     public string $pageToView;
 
@@ -21,7 +21,7 @@ class IndexRouting
     private function pageDisplay(): void
     {
         $this->uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-        $this->uriExplode = explode("/", $this->uri);
+//        $this->uriExplode = explode("/", $this->uri);
 
         foreach ($this->routes as $page)
         {

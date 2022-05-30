@@ -1,9 +1,12 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
+
 class DataPostMethod
 {
-    public array $dataPost;
+    private array $dataPost;
     // Into this method we have to insert $_POST array as an attribute//
+    #[ArrayShape(["title" => "string", "description" => "string", "topic" => "string"])]
     public function getPostMethodData(array $globalPostArray): array
     {
         $this->dataPost = $globalPostArray;
