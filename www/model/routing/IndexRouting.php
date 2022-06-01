@@ -1,5 +1,7 @@
 <?php
 
+require "/var/www/model/routing/RoutingExceptions.php";
+
 class IndexRouting
 {
     public string $uri;
@@ -10,7 +12,6 @@ class IndexRouting
     public function __construct($routes)
     {
         $this->routes = $routes;
-        $this->pageDisplay();
     }
 
     public function getPageToView(): string
@@ -18,17 +19,36 @@ class IndexRouting
         return $this->pageToView;
     }
 
-    private function pageDisplay(): void
+    private function setPageToView($routes): bool
     {
-        $this->uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-//        $this->uriExplode = explode("/", $this->uri);
-
-        foreach ($this->routes as $page)
+        foreach ($routes as $page)
         {
             if (preg_match($page['regular_pattern'], $this->uri, $matches))
             {
                 $this->pageToView = $page['controller'];
+                return True;
             }
+        }
+
+        return False;
+    }
+
+    public function pageDisplay(): string
+    {
+        $this->uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+//        $this->uriExplode = explode("/", $this->uri);
+
+        try
+        {
+            if ($this->setPageToView($this->routes))
+            {
+                return $this->getPageToView();
+            } else {
+                throw new RoutingException404();
+            }
+        } catch (RoutingExceptions $e)
+        {
+            return $e->getExceptionPage();
         }
     }
 }

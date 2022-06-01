@@ -12,7 +12,7 @@ require "/var/www/template_handler/TplHandler.php";
 require "/var/www/view/nav/nav_main.html";
 require "/var/www/view/nav/nav_blog.html";
 
-    $tplHandler->setContents('/var/www/template/detail_topic_fill.tpl');
+    $tplHandler->setContents('/var/www/view/detail_topic/detail_topic_fill.tpl');
     echo $tplHandler->creator($tplFills);
 
 require "/var/www/view/html-footer.html";

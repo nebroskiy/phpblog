@@ -10,7 +10,7 @@ class TopicDisplayController
     {
         $this->pdoConnect();
         $this->pdoFetchIdDesc($this->connection);
-        $this->displayTopics();
+        $this->getHandlerPages();
     }
 
     private function pdoConnect(): void
@@ -25,7 +25,7 @@ class TopicDisplayController
     {
         require "DataTopicFetchIdDesc.php";
         $topicFetch = new DataTopicFetchIdDesc();
-        $this->resQuery = $topicFetch->dataTopicFetchIdDesc($this->connection);
+        $this->resQuery = $topicFetch->dataTopicFetchIdDesc($connection);
     }
 
     public function setPagesToDisplay (array $pages) :void
@@ -38,11 +38,19 @@ class TopicDisplayController
         return $this->pagesToDisplay;
     }
 
-    private function displayTopics (): void
+    private function getHandlerPages (): void
     {
         require "DataDisplayTopics.php";
         $displayTopics = new DataDisplayTopics(new TplHandler('/var/www/view/blog/display_topics_fill.tpl'),
                                         $this->resQuery);
         $this->setPagesToDisplay($displayTopics->getPagesDone());
+    }
+
+    public function foreachPagesToDisplay (array $pagesToDisplay): void
+    {
+        foreach ($pagesToDisplay as $page)
+        {
+            echo $page;
+        }
     }
 }

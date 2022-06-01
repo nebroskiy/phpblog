@@ -10,4 +10,4 @@ require "/var/www/model/routing/IndexRouting.php";
 
     $router = new IndexRouting($routes);
 
-require $router->getPageToView();
+require $router->pageDisplay();
