@@ -23,7 +23,7 @@ class IndexRouting
     {
         foreach ($routes as $page)
         {
-            if (preg_match($page['regular_pattern'], $this->uri, $matches))
+            if (preg_match($page['regular_pattern'], $this->uri))
             {
                 $this->pageToView = $page['controller'];
                 return True;

@@ -1,6 +1,8 @@
 <div class="container mt-4">
     <?php
-    require "/var/www/model/data_topic_display/TopicDisplayController.php";
+
+    use DataTopicDisplay\TopicDisplayController;
+
     $topicsToView = new TopicDisplayController();
     $topicsToView->foreachPagesToDisplay($topicsToView->getPagesToDisplay());
     ?>

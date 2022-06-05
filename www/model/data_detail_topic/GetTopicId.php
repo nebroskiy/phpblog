@@ -1,4 +1,5 @@
 <?php
+use Routing\IndexRouting;
 
 class GetTopicId
 {

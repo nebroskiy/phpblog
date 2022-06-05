@@ -1,5 +1,6 @@
 <?php
-require "/var/www/template_handler/TplHandler.php";
+
+use TplHandler\TplHandler;
 
     $fillsCreateTopic = ['title' => "Create Topic", 'header' => "Create Topic"];
     $tplHandler = new TplHandler("/var/www/view/html-head.html.tpl");

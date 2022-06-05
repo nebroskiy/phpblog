@@ -1,5 +1,6 @@
 <?php
-    $article = "Test Doc";
+
+$article = "Test Doc";
     require "/var/www/view/html-head.html.tpl";
 ?>
 <header>
@@ -229,6 +230,8 @@ foreach ($arr as $a)
     $i ++;
     echo $i;
 }
+
+
 
 ?>
 </h4></div>

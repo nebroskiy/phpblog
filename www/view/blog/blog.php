@@ -1,5 +1,6 @@
 <?php
-require "/var/www/template_handler/TplHandler.php";
+//require "/var/www/template_handler/TplHandler.php";
+use TplHandler\TplHandler;
 
     $fillsBlog = ['title' => 'Blog', 'header' => 'Blog'];
 

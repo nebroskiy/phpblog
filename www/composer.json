@@ -1,0 +1,16 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Routing\\": "src/Model/Routing",
+      "Exceptions\\": "src/Model/Exceptions",
+      "DataConnection\\": "src/Model/DataConnection",
+      "TplHandler\\": "src/Model/TemplateHandler",
+      "DataTopicDisplay\\": "src/Model/DataTopicDisplay",
+      "DataDetailTopic\\": "src/Model/DataDetailTopic",
+      "DataInsert\\": "src/Model/DataInsert"
+    }
+  },
+  "require": {
+    "ext-pdo": "*"
+  }
+}
