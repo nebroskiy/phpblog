@@ -4,13 +4,14 @@ namespace DataInsert;
 
 use DataConnection\DataConnection;
 use DataConnection\DataConnectionPdo;
+use PDO;
 
 class DataInsert
 {
     private string $title;
     private string $description;
     private string $topic;
-    private DataConnection $connection;
+    private PDO $connection;
 
     public function __construct(string $title, string $description, string $topic)
     {

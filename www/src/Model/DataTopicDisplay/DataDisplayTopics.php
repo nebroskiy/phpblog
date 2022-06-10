@@ -48,9 +48,9 @@ class DataDisplayTopics
 
         foreach ($tplFills as $fills)
         {
-            $this->tplFilePrepared = $this->tplHandler->creator($fills);
+            $this->tplFilePrepared = $this->tplHandler->creator('/var/www/view/blog/display_topics_fill.tpl', $fills);
             $pages[] = $this->tplFilePrepared;
-            $this->tplHandler->setContents($this->tplHandler->tplFile);
+//            $this->tplHandler->setContents($this->tplHandler->tplFile);
         }
 
         $this->setPagesDone($pages);

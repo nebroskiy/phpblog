@@ -1,16 +1,26 @@
 {
+  "name": "vendor_name/www",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "rampar",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "ext-pdo": "*"
+  },
   "autoload": {
     "psr-4": {
       "Routing\\": "src/Model/Routing",
-      "Exceptions\\": "src/Model/Exceptions",
       "DataConnection\\": "src/Model/DataConnection",
-      "TplHandler\\": "src/Model/TemplateHandler",
-      "DataTopicDisplay\\": "src/Model/DataTopicDisplay",
       "DataDetailTopic\\": "src/Model/DataDetailTopic",
-      "DataInsert\\": "src/Model/DataInsert"
+      "DataInsert\\": "src/Model/DataInsert",
+      "DataTopicDisplay\\": "src/Model/DataTopicDisplay",
+      "Exceptions\\": "src/Model/Exceptions",
+      "TplHandler\\": "src/Model/TemplateHandler"
     }
-  },
-  "require": {
-    "ext-pdo": "*"
   }
 }

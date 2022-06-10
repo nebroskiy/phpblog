@@ -4,30 +4,31 @@ namespace TplHandler;
 
 class TplHandler
 {
-    private array $tplFills;
-    public string $tplFile;
-    private string $tplFilePrepared;
+//    private array $tplFills;
+//    public string $tplFile;
+//    private string $tplFilePrepared;
 
-    public function __construct(string $tplFile)
+//    public function __construct(string $tplFile)
+//    {
+//        $this->tplFile = $tplFile;
+//        $this->setContents($this->tplFile);
+//    }
+
+//    public function setContents (string $tplFile) :void
+//    {
+//        $this->tplFilePrepared = file_get_contents($tplFile);
+//    }
+
+    public function creator (string $tplFile, array $tplFills) :string
     {
-        $this->tplFile = $tplFile;
-        $this->setContents($this->tplFile);
-    }
+//        $this->tplFills = $tplFills;
+        $tplFilePrepared = file_get_contents($tplFile);
 
-    public function setContents (string $tplFile) :void
-    {
-        $this->tplFilePrepared = file_get_contents($tplFile);
-    }
-
-    public function creator (array $tplFills) :string
-    {
-        $this->tplFills = $tplFills;
-
-        foreach ($this->tplFills as $key => $value)
+        foreach ($tplFills as $key => $value)
         {
-            $this->tplFilePrepared = str_replace("{".$key."}", $value, $this->tplFilePrepared);
+            $tplFilePrepared = str_replace("{".$key."}", $value, $tplFilePrepared);
         }
 
-        return $this->tplFilePrepared;
+        return $tplFilePrepared;
     }
 }
