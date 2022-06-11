@@ -2,21 +2,18 @@
 
 namespace DataConnection;
 
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use PDO;
 
-class DataConnectionPdo implements DataConnectionInterface
+class DataConnectionPdo extends PDO
 {
-    public string $driver = "mysql";
-    public string $host = "db";
-    public string $dbname = "dbtest";
-    public string $charset = "utf8";
-    public string $username = "root";
-    public string $password = "qwerty";
 
-    public function connectionToDb (): PDO
+    public function __construct(string $driver = "mysql", string $host = "db", string $dbname = 'dbtest',
+                                string $charset = "utf8", string $username = "root",
+                                string $password = "qwerty", array|null $options = null)
     {
-        $connectionPdo = new PDO("$this->driver:host=$this->host;dbname=$this->dbname;charset=$this->charset",
-            "$this->username", "$this->password");
-        return $connectionPdo;
+        $dsn = "$driver:host=$host;dbname=$dbname;charset=$charset";
+        parent::__construct($dsn, $username, $password, $options);
     }
 }
+

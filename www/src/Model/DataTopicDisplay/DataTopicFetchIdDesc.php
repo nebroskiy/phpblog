@@ -2,14 +2,21 @@
 
 namespace DataTopicDisplay;
 
-use PDO;
+use DataConnection\DataConnectionPdo;
 use PDOStatement;
 
 class DataTopicFetchIdDesc
 {
-    public function dataTopicFetchIdDesc(PDO $connection): PDOStatement
+    private DataConnectionPdo $connection;
+
+    public function __construct(DataConnectionPdo $connection)
+    {
+        $this->connection = $connection;
+    }
+
+    public function dataTopicFetchIdDesc(): PDOStatement
     {
         $query = "SELECT * FROM test_table ORDER BY id DESC;";
-        return $connection->query($query);
+        return $this->connection->query($query);
     }
 }

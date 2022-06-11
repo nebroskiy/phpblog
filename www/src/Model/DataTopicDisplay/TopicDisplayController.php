@@ -2,58 +2,41 @@
 
 namespace DataTopicDisplay;
 
-use DataConnection\DataConnection;
-use DataConnection\DataConnectionPdo;
-use PDO;
+//use DataConnection\DataConnection;
+//use DataConnection\DataConnectionPdo;
+//use PDO;
 use PDOStatement;
-use TplHandler\TplHandler;
+//use TplHandler\TplHandler;
 
 class TopicDisplayController
 {
-    private PDO $connection;
-    private PDOStatement $resQuery;
+    private DataDisplayTopics $dataDisplayTopics;
     private array $pagesToDisplay;
 
-    public function __construct()
+    public function __construct(DataDisplayTopics $dataDisplayTopics)
     {
-        $this->pdoConnect();
-        $this->pdoFetchIdDesc($this->connection);
-        $this->getHandlerPages();
+        $this->dataDisplayTopics = $dataDisplayTopics;
     }
 
-    private function pdoConnect(): void
+    public function callFetchIdDesc() :void
     {
-        $connectionBy = new DataConnection();
-        $c_pdo = new DataConnectionPdo();
-        $this->connection = $connectionBy->getConnection($c_pdo);
+        $this->dataDisplayTopics->pdoFetchIdDesc();
     }
 
-    private function pdoFetchIdDesc(PDO $connection): void
+    public function callSetFills() :void
     {
-        $topicFetch = new DataTopicFetchIdDesc();
-        $this->resQuery = $topicFetch->dataTopicFetchIdDesc($connection);
+        $this->dataDisplayTopics->setFills();
     }
 
-    public function setPagesToDisplay (array $pages) :void
+    public function setPagesToDisplay () :void
     {
-        $this->pagesToDisplay = $pages;
+        $this->dataDisplayTopics->setPagesDone();
+        $this->pagesToDisplay = $this->dataDisplayTopics->getPagesDone();
     }
 
-    public function getPagesToDisplay (): array
+    public function getPagesToDisplay () :void
     {
-        return $this->pagesToDisplay;
-    }
-
-    private function getHandlerPages (): void
-    {
-        $displayTopics = new DataDisplayTopics(new TplHandler('/var/www/view/blog/display_topics_fill.tpl'),
-                                        $this->resQuery);
-        $this->setPagesToDisplay($displayTopics->getPagesDone());
-    }
-
-    public function foreachPagesToDisplay (array $pagesToDisplay): void
-    {
-        foreach ($pagesToDisplay as $page)
+        foreach ($this->pagesToDisplay as $page)
         {
             echo $page;
         }

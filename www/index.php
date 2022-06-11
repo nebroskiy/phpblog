@@ -11,7 +11,6 @@ use Routing\IndexRouting;
         ['regular_pattern' => '/^\/createtopic$/', 'controller' => '/var/www/view/create_topic/create_topic.php'],
         ['regular_pattern' => '/^\/DataInsertController$/', 'controller' => '/var/www/src/Model/DataInsert/DataInsertController.php']];
 
-
     $router = new IndexRouting($routes);
 
 require $router->pageDisplay();

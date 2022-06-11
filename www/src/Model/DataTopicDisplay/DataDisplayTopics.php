@@ -7,52 +7,45 @@ use TplHandler\TplHandler;
 
 class DataDisplayTopics
 {
-    private object $tplHandler;
+    private TplHandler $tplHandler;
+    private DataTopicFetchIdDesc $dataTopicFetchIdDesc;
+    public PDOStatement $pdoFills;
     private array $tplFills = [];
-    private string $tplFilePrepared;
     private array $pagesDone;
 
-    public function __construct(TplHandler $tplHandler, PDOStatement $fills)
-    {
-        $this->setHandler($tplHandler);
-        $this->setFills($fills);
-        $this->showTopics($this->tplFills);
-    }
-
-    private function setHandler (TplHandler $tplHandler) :void
+    public function __construct(TplHandler $tplHandler, DataTopicFetchIdDesc $dataTopicFetchIdDesc)
     {
         $this->tplHandler = $tplHandler;
+        $this->dataTopicFetchIdDesc = $dataTopicFetchIdDesc;
     }
 
-    public function setFills (PDOStatement $fills) :void
+    public function pdoFetchIdDesc() :void
     {
-        while ($row = $fills->fetch())
+        $this->pdoFills = $this->dataTopicFetchIdDesc->dataTopicFetchIdDesc();
+    }
+
+    public function setFills () :void
+    {
+        while ($row = $this->pdoFills->fetch())
         {
             $this->tplFills[] = $row;
         }
     }
 
-    public function setPagesDone (array $pages) :void
-    {
-        $this->pagesDone = $pages;
-    }
-
-    public function getPagesDone (): array
+    public function getPagesDone () :array
     {
         return $this->pagesDone;
     }
 
-    public function showTopics (array $tplFills): void
+    public function setPagesDone () :void
     {
         $pages = [];
 
-        foreach ($tplFills as $fills)
+        foreach ($this->tplFills as $fills)
         {
-            $this->tplFilePrepared = $this->tplHandler->creator('/var/www/view/blog/display_topics_fill.tpl', $fills);
-            $pages[] = $this->tplFilePrepared;
-//            $this->tplHandler->setContents($this->tplHandler->tplFile);
+            $pages[] = $this->tplHandler->creator('/var/www/view/blog/display_topics_fill.tpl', $fills);
         }
 
-        $this->setPagesDone($pages);
+        $this->pagesDone = $pages;
     }
 }
