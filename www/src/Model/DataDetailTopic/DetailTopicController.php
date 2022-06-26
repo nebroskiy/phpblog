@@ -27,7 +27,7 @@ class DetailTopicController
         if (!$tplFills = $this->pdoFills->fetch()){
             require "/var/www/view/404.php";
         } else {
-            require "detailTopicGetView.php";
+            require "detailTopicGetView.tpl.php";
         }
     }
 }

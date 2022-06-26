@@ -17,8 +17,6 @@ class TplHandler
         return $tplFilePrepared;
     }
 
-
-
     public function require(string $template, array $fills = []): void
     {
         require $template;

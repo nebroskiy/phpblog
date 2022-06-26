@@ -6,14 +6,18 @@ use DataConnection\DataConnectionPdo;
 
 use TplHandler\TplHandler;
 
+use DataTopicDisplay\DataDisplayTopics;
+use DataTopicDisplay\DataTopicFetchIdDesc;
+use DataTopicDisplay\TopicDisplayControllerNew;
+
+use DataDetailTopic\DataDetail;
+use DataDetailTopic\GetTopicId;
+use DataDetailTopic\DetailTopicControllerNew;
+
 use ControllerManager\ControllerManager;
 
 use Routing\Routes;
 use Routing\IndexRouting;
-
-use DataTopicDisplay\DataDisplayTopics;
-use DataTopicDisplay\DataTopicFetchIdDesc;
-use DataTopicDisplay\TopicDisplayControllerNew;
 
 $connection = new DataConnectionPdo();
 
@@ -23,9 +27,13 @@ $dataTopicFetchIdDesc = new DataTopicFetchIdDesc($connection);
 $dataDisplayTopics = new DataDisplayTopics($tplHandler, $dataTopicFetchIdDesc);
 $topicDisplayControllerNew = new TopicDisplayControllerNew($dataDisplayTopics, $tplHandler);
 
+$getTopicId = new GetTopicId();
+$dataDetail = new DataDetail($connection, $getTopicId);
+$detailTopicControllerNew = new DetailTopicControllerNew($dataDetail, $tplHandler);
+
 $controllerManager = new ControllerManager();
 
-$routes = new Routes($topicDisplayControllerNew);
+$routes = new Routes($topicDisplayControllerNew, $detailTopicControllerNew);
 $router = new IndexRouting($controllerManager, $routes);
 
 $router->pageDisplay();

@@ -8,9 +8,9 @@ class GetTopicId
 {
     private string $id;
 
-    public function __construct(IndexRouting $router)
+    public function setId(): void
     {
-        $uri = $router->uri;
+        $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
         preg_match('/id=\d+/', $uri, $matches);
 
