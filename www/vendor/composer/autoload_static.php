@@ -26,6 +26,10 @@ class ComposerStaticInita8780a905dbbf8ed18aa4e11259a5708
             'DataDetailTopic\\' => 16,
             'DataConnection\\' => 15,
         ),
+        'C' => 
+        array (
+            'ControllerManager\\' => 18,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -56,6 +60,10 @@ class ComposerStaticInita8780a905dbbf8ed18aa4e11259a5708
         'DataConnection\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Model/DataConnection',
+        ),
+        'ControllerManager\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Model/ControllerManager',
         ),
     );
 

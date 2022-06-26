@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Model/Exceptions" isTestSource="false" packagePrefix="Exceptions\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Model/Routing" isTestSource="false" packagePrefix="Routing\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Model/TemplateHandler" isTestSource="false" packagePrefix="TplHandler\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Model/ControllerManager" isTestSource="false" packagePrefix="ControllerManager\" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -2,7 +2,6 @@
 
 namespace DataConnection;
 
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use PDO;
 
 class DataConnectionPdo extends PDO

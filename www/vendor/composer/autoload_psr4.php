@@ -13,4 +13,5 @@ return array(
     'DataInsert\\' => array($baseDir . '/src/Model/DataInsert'),
     'DataDetailTopic\\' => array($baseDir . '/src/Model/DataDetailTopic'),
     'DataConnection\\' => array($baseDir . '/src/Model/DataConnection'),
+    'ControllerManager\\' => array($baseDir . '/src/Model/ControllerManager'),
 );

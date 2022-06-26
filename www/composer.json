@@ -20,7 +20,8 @@
       "DataInsert\\": "src/Model/DataInsert",
       "DataTopicDisplay\\": "src/Model/DataTopicDisplay",
       "Exceptions\\": "src/Model/Exceptions",
-      "TplHandler\\": "src/Model/TemplateHandler"
+      "TplHandler\\": "src/Model/TemplateHandler",
+      "ControllerManager\\": "src/Model/ControllerManager"
     }
   }
 }
