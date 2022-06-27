@@ -4,14 +4,23 @@ namespace DataInsert;
 
 class DataPostMethod
 {
-    private array $dataPost;
+    private array $globalPostArray;
+    private array $dataPostArray;
 
     // Into this method we have to insert $_POST array as an attribute//
-    public function getPostMethodData(array $globalPostArray): array
+    public function __construct(array $globalPostArray)
     {
-        $this->dataPost = $globalPostArray;
-        $dataPostArray = ["title" => $this->dataPost["title"],
-            "description" => $this->dataPost["description"], "topic" => $this->dataPost["topic"]];
-        return $dataPostArray;
+        $this->globalPostArray = $globalPostArray;
+    }
+
+    public function setDataPostArray(): void
+    {
+        $this->dataPostArray = ["title" => $this->globalPostArray["title"],
+            "description" => $this->globalPostArray["description"], "topic" => $this->globalPostArray["topic"]];
+    }
+
+    public function getDataPostArray(): array
+    {
+        return $this->dataPostArray;
     }
 }

@@ -3,9 +3,10 @@
 namespace DataInsert;
 
 use DataConnection\DataConnection;
+use DataConnection\DataConnectionPdo;
 use PDO;
 
 interface DataInsertInDbInterface
 {
-    public function dataSave (PDO $connection, string $title, string $description, string $topic);
+    public function dataSave (DataConnectionPdo $connection, array $dataPostArray);
 }

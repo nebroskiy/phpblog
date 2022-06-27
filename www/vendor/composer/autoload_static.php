@@ -28,6 +28,7 @@ class ComposerStaticInita8780a905dbbf8ed18aa4e11259a5708
         ),
         'C' => 
         array (
+            'CreateTopic\\' => 12,
             'ControllerManager\\' => 18,
         ),
     );
@@ -60,6 +61,10 @@ class ComposerStaticInita8780a905dbbf8ed18aa4e11259a5708
         'DataConnection\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Model/DataConnection',
+        ),
+        'CreateTopic\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Model/CreateTopic',
         ),
         'ControllerManager\\' => 
         array (

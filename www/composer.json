@@ -21,7 +21,8 @@
       "DataTopicDisplay\\": "src/Model/DataTopicDisplay",
       "Exceptions\\": "src/Model/Exceptions",
       "TplHandler\\": "src/Model/TemplateHandler",
-      "ControllerManager\\": "src/Model/ControllerManager"
+      "ControllerManager\\": "src/Model/ControllerManager",
+      "CreateTopic\\": "src/Model/CreateTopic"
     }
   }
 }

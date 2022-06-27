@@ -9,14 +9,14 @@ use Exceptions\DataInsert\TopicTopicException;
 
 class DataTopicCheck
 {
-    public function checkForLen (string $title, string $description, string $topic): bool
+    public function checkForLen (array $dataPostArray): bool
     {
         try {
-            if (strlen($title) <= 5 || trim($title) == "") {
+            if (strlen($dataPostArray['title']) <= 5 || trim($dataPostArray['title']) == "") {
                 throw new TitleTopicException();
-            } elseif (strlen($description <= 5 || trim($description) == "")) {
+            } elseif (strlen($dataPostArray['description'] <= 5 || trim($dataPostArray['description']) == "")) {
                 throw new DescriptionTopicException();
-            } elseif (strlen($topic) < 10 || trim($topic) == "") {
+            } elseif (strlen($dataPostArray['topic']) < 10 || trim($dataPostArray['topic']) == "") {
                 throw new TopicTopicException();
             } else {
                 return True;

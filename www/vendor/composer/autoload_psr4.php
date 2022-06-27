@@ -13,5 +13,6 @@ return array(
     'DataInsert\\' => array($baseDir . '/src/Model/DataInsert'),
     'DataDetailTopic\\' => array($baseDir . '/src/Model/DataDetailTopic'),
     'DataConnection\\' => array($baseDir . '/src/Model/DataConnection'),
+    'CreateTopic\\' => array($baseDir . '/src/Model/CreateTopic'),
     'ControllerManager\\' => array($baseDir . '/src/Model/ControllerManager'),
 );

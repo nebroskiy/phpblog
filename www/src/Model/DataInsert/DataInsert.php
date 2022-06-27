@@ -8,36 +8,52 @@ use PDO;
 
 class DataInsert
 {
-    private string $title;
-    private string $description;
-    private string $topic;
-    private PDO $connection;
+//    private string $title;
+//    private string $description;
+//    private string $topic;
+    private DataConnectionPdo $connection;
+    private DataPostMethod $dataPostMethod;
+    private DataTopicCheck $dataTopicCheck;
+    private DataInsertInDb $dataInsertInDb;
+    private DataInsertMariaDb $dataInsertMariaDb;
+    private array $dataPostArray;
 
-    public function __construct(string $title, string $description, string $topic)
+    public function __construct(DataConnectionPdo $connection, DataPostMethod $dataPostMethod,
+                                DataTopicCheck $dataTopicCheck, DataInsertInDb $dataInsertInDb,
+                                DataInsertMariaDb $dataInsertMariaDb)
     {
-        $this->title = $title;
-        $this->description = $description;
-        $this->topic = $topic;
-        $this->dataInsert();
+        $this->connection = $connection;
+        $this->dataPostMethod = $dataPostMethod;
+        $this->dataTopicCheck = $dataTopicCheck;
+        $this->dataInsertInDb = $dataInsertInDb;
+        $this->dataInsertMariaDb = $dataInsertMariaDb;
+//        $this->title = $title;
+//        $this->description = $description;
+//        $this->topic = $topic;
     }
 
-    private function PdoConnect(): void
+    public function setDataPostArray(): void
     {
-        $connectionBy = new DataConnection();
-        $c_pdo = new DataConnectionPdo();
-        $this->connection = $connectionBy->getConnection($c_pdo);
+        $this->dataPostMethod->setDataPostArray();
+        $this->dataPostArray = $this->dataPostMethod->getDataPostArray();
     }
+//    private function PdoConnect(): void
+//    {
+//        $connectionBy = new DataConnection();
+//        $c_pdo = new DataConnectionPdo();
+//        $this->connection = $connectionBy->getConnection($c_pdo);
+//    }
 
     public function dataInsert(): void
     {
-            $dataTopicCheck = new DataTopicCheck();
-            $dataTopicCheck->checkForLen($this->title, $this->description, $this->topic);
-        if ($dataTopicCheck)
+//            $dataTopicCheck = new DataTopicCheck();
+            $this->dataTopicCheck->checkForLen($this->dataPostArray);
+        if ($this->dataTopicCheck)
         {
-            $this->PdoConnect();
-            $insertDataTo = new DataInsertInDb;
-            $db = new DataInsertMariaDb;
-            $insertDataTo->savingData($db, $this->connection, $this->title, $this->description, $this->topic);
+//            $this->PdoConnect();
+//            $insertDataTo = new DataInsertInDb;
+//            $db = new DataInsertMariaDb;
+            $this->dataInsertInDb->savingData($this->dataInsertMariaDb, $this->connection, $this->dataPostArray);
         }
     }
 }
