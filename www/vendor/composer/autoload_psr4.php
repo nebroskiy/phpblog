@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'TplHandler\\' => array($baseDir . '/src/Model/TemplateHandler'),
+    'Test\\' => array($baseDir . '/src/Model/Test'),
     'Routing\\' => array($baseDir . '/src/Model/Routing'),
     'Exceptions\\' => array($baseDir . '/src/Model/Exceptions'),
     'DataTopicDisplay\\' => array($baseDir . '/src/Model/DataTopicDisplay'),

@@ -1,0 +1,19 @@
+templater class:
+    inherit method ('parent template', 'child template')
+
+        making a string 'childString' from 'child template';
+        finding 'CONTENT' block with 'preg_match' function;
+        define variable string 'childContent' with 'CONTENT' block inside;
+
+        making a string 'parentString' from 'parent template';
+        replace 'CONTENT' block in 'parentString' with 'childContent' var;
+
+        output 'parentString'
+
+
+
+
+
+
+
+

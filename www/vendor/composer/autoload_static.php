@@ -10,6 +10,7 @@ class ComposerStaticInita8780a905dbbf8ed18aa4e11259a5708
         'T' => 
         array (
             'TplHandler\\' => 11,
+            'Test\\' => 5,
         ),
         'R' => 
         array (
@@ -37,6 +38,10 @@ class ComposerStaticInita8780a905dbbf8ed18aa4e11259a5708
         'TplHandler\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Model/TemplateHandler',
+        ),
+        'Test\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Model/Test',
         ),
         'Routing\\' => 
         array (

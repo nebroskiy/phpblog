@@ -20,11 +20,6 @@ class InsertControllerNew implements ControllerManagerInterface
     {
         $this->dataInsert->setDataPostArray();
         $this->dataInsert->dataInsert();
-//        $dataFromPostMethod = new DataPostMethod();
-//        $this->dataPostMethod->setDataPostArray();
-//        $getDataFromPost = $this->dataPostMethod->getDataPostArray();
-
-//        $topicInsertion = new DataInsert($getDataFromPost["title"], $getDataFromPost["description"], $getDataFromPost["topic"]);
         header("Location:/");
     }
 }

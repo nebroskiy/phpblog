@@ -22,7 +22,8 @@
       "Exceptions\\": "src/Model/Exceptions",
       "TplHandler\\": "src/Model/TemplateHandler",
       "ControllerManager\\": "src/Model/ControllerManager",
-      "CreateTopic\\": "src/Model/CreateTopic"
+      "CreateTopic\\": "src/Model/CreateTopic",
+      "Test\\": "src/Model/Test"
     }
   }
 }

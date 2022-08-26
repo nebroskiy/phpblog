@@ -8,9 +8,6 @@ use PDO;
 
 class DataInsert
 {
-//    private string $title;
-//    private string $description;
-//    private string $topic;
     private DataConnectionPdo $connection;
     private DataPostMethod $dataPostMethod;
     private DataTopicCheck $dataTopicCheck;
@@ -27,9 +24,6 @@ class DataInsert
         $this->dataTopicCheck = $dataTopicCheck;
         $this->dataInsertInDb = $dataInsertInDb;
         $this->dataInsertMariaDb = $dataInsertMariaDb;
-//        $this->title = $title;
-//        $this->description = $description;
-//        $this->topic = $topic;
     }
 
     public function setDataPostArray(): void
@@ -37,22 +31,12 @@ class DataInsert
         $this->dataPostMethod->setDataPostArray();
         $this->dataPostArray = $this->dataPostMethod->getDataPostArray();
     }
-//    private function PdoConnect(): void
-//    {
-//        $connectionBy = new DataConnection();
-//        $c_pdo = new DataConnectionPdo();
-//        $this->connection = $connectionBy->getConnection($c_pdo);
-//    }
 
     public function dataInsert(): void
     {
-//            $dataTopicCheck = new DataTopicCheck();
             $this->dataTopicCheck->checkForLen($this->dataPostArray);
         if ($this->dataTopicCheck)
         {
-//            $this->PdoConnect();
-//            $insertDataTo = new DataInsertInDb;
-//            $db = new DataInsertMariaDb;
             $this->dataInsertInDb->savingData($this->dataInsertMariaDb, $this->connection, $this->dataPostArray);
         }
     }

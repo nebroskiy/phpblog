@@ -23,6 +23,8 @@ use DataInsert\DataInsertMariaDb;
 use DataInsert\DataInsert;
 use DataInsert\InsertControllerNew;
 
+use Test\TestController;
+
 use ControllerManager\ControllerManager;
 
 use Routing\Routes;
@@ -49,9 +51,12 @@ $dataInsertInDb = new DataInsertInDb();
 $dataInsert = new DataInsert($connection, $dataPostMethod, $dataTopicCheck, $dataInsertInDb, $dataInsertMariaDb);
 $insertControllerNew = new InsertControllerNew($dataInsert);
 
+$testController = new TestController();
+
 $controllerManager = new ControllerManager();
 
-$routes = new Routes($topicDisplayControllerNew, $detailTopicControllerNew, $createTopicController, $insertControllerNew);
+$routes = new Routes($topicDisplayControllerNew, $detailTopicControllerNew,
+                     $createTopicController, $insertControllerNew, $testController);
 $router = new IndexRouting($controllerManager, $routes);
 
 $router->pageDisplay();

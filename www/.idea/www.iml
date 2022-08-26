@@ -3,7 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Model/ControllerManager" isTestSource="false" packagePrefix="ControllerManager\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Model/CreateTopic" isTestSource="false" packagePrefix="CreateTopic\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Model/DataConnection" isTestSource="false" packagePrefix="DataConnection\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Model/DataDetailTopic" isTestSource="false" packagePrefix="DataDetailTopic\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Model/DataInsert" isTestSource="false" packagePrefix="DataInsert\" />
@@ -11,8 +12,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Model/Exceptions" isTestSource="false" packagePrefix="Exceptions\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Model/Routing" isTestSource="false" packagePrefix="Routing\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Model/TemplateHandler" isTestSource="false" packagePrefix="TplHandler\" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Model/ControllerManager" isTestSource="false" packagePrefix="ControllerManager\" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Model/CreateTopic" isTestSource="false" packagePrefix="CreateTopic\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Model/Test" isTestSource="false" packagePrefix="Test\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
